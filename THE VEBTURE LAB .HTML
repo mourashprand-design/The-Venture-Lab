@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Venture Lab</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f0;
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(8,8,8,.82);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #181818;
+}
+
+.nav-inner {
+    width: min(1150px, 90%);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.logo-image {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #999;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-apply {
+    border: 1px solid #777;
+    padding: 9px 16px;
+    color: white !important;
+}
+
+.nav-apply:hover {
+    background: white;
+    color: #080808 !important;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "VL";
+    position: absolute;
+    right: -50px;
+    bottom: -100px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(300px, 42vw, 600px);
+    font-weight: 700;
+    color: rgba(255,255,255,.025);
+    line-height: .8;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 10vw, 125px);
+    line-height: .88;
+    letter-spacing: -6px;
+    margin-bottom: 32px;
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #999;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 23px;
+    border: 1px solid #444;
+    font-size: 13px;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: white;
+    color: #080808;
+    border-color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #080808;
+}
+
+
+/* ================= MARQUEE ================= */
+
+.marquee {
+    border-top: 1px solid #202020;
+    border-bottom: 1px solid #202020;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-block;
+    padding: 17px 0;
+    animation: scroll 20s linear infinite;
+    color: #666;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.marquee-track span {
+    margin: 0 28px;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 70px;
+}
+
+.about-grid h2 {
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.about-text {
+    color: #999;
+    font-size: 17px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+
+/* ================= AGE ================= */
+
+.age-banner {
+    margin-top: 65px;
+    border: 1px solid #303030;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.age-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(65px, 9vw, 110px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.age-text {
+    max-width: 520px;
+    color: #888;
+}
+
+.age-text strong {
+    color: white;
+}
+
+
+/* ================= SECTION HEADINGS ================= */
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-size: clamp(45px, 6vw, 78px);
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+
+/* ================= PROCESS ================= */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #292929;
+}
+
+.step {
+    padding: 30px 25px 30px 0;
+    margin-right: 25px;
+    border-right: 1px solid #292929;
+}
+
+.step:last-child {
+    border-right: none;
+}
+
+.step-number {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+
+.step h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ================= BUILD ================= */
+
+.build-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid #292929;
+    gap: 1px;
+    background: #292929;
+}
+
+.build-card {
+    background: #080808;
+    padding: 35px;
+    min-height: 210px;
+    transition: .2s;
+}
+
+.build-card:hover {
+    background: #101010;
+}
+
+.build-card .icon {
+    color: #aaa;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.build-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.build-card p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ================= FOUNDERS ================= */
+
+.founders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.founder {
+    border: 1px solid #292929;
+    padding: 18px;
+    background: #0b0b0b;
+    transition: .25s;
+}
+
+.founder:hover {
+    border-color: #555;
+    transform: translateY(-4px);
+}
+
+.founder-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #151515;
+    margin-bottom: 20px;
+}
+
+.placeholder {
+    display: grid;
+    place-items: center;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.founder h3 {
+    font-size: 25px;
+    margin-bottom: 3px;
+}
+
+.founder-role {
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+
+.founder-bio {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 17px;
+}
+
+.founder-link {
+    display: inline-block;
+    font-size: 12px;
+    color: #aaa;
+    border-bottom: 1px solid #444;
+    padding-bottom: 3px;
+    transition: .2s;
+}
+
+.founder-link:hover {
+    color: white;
+    border-color: white;
+}
+
+
+/* ================= APPLICATION ================= */
+
+.application {
+    max-width: 760px;
+}
+
+.application h2 {
+    font-size: clamp(48px, 6vw, 78px);
+    line-height: .95;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
+}
+
+.application-intro {
+    color: #777;
+    margin-bottom: 45px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: #999;
+    font-size: 12px;
+}
+
+input,
+textarea {
+    width: 100%;
+    background: #101010;
+    border: 1px solid #292929;
+    color: white;
+    padding: 14px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #666;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.checkbox-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    border-top: 1px solid #202020;
+    padding: 55px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    color: #555;
+    font-size: 12px;
+    max-width: 400px;
+    margin-top: 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #777;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .nav-links a:not(.nav-apply) {
+        display: none;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .age-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        border-right: none;
+        border-bottom: 1px solid #292929;
+        margin-right: 0;
+    }
+
+    .build-grid,
+    .founders {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+}
+
+
+/* ================= CURSOR ================= */
+
+.cursor {
+    position: fixed;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: white;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+.cursor.big {
+    width: 38px;
+    height: 38px;
+}
+
+@media (pointer: coarse) {
+    .cursor {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="cursor"></div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="nav-inner">
+
+<a href="#" class="logo">
+
+<img
+src="Logo.png"
+alt="The Venture Lab Logo"
+class="logo-image">
+
+<span>THE VENTURE LAB</span>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="#about">About</a>
+
+<a href="#build">Build</a>
+
+<a href="#founders">Founders</a>
+
+<a href="#apply" class="nav-apply">Apply</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+Student-led · Remote · 2026
+</div>
+
+<h1>
+Build.<br>
+<span>Connect.</span><br>
+Create.
+</h1>
+
+<p class="hero-description">
+The Venture Lab is a student-led community where
+young builders can meet, learn, work on ideas and
+build projects together.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#apply" class="btn btn-primary">
+Apply to the Lab →
+</a>
+
+<a href="#about" class="btn btn-secondary">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+<span>IDEATE</span> ·
+<span>BUILD</span> ·
+<span>CONNECT</span> ·
+<span>LEARN</span> ·
+<span>LAUNCH</span> ·
+<span>IDEATE</span> ·
+<span>BUILD</span> ·
+<span>CONNECT</span> ·
+<span>LEARN</span> ·
+<span>LAUNCH</span> ·
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="container">
+
+<div class="about-grid">
+
+<div>
+
+<div class="eyebrow">
+01 — About
+</div>
+
+<h2>
+Not just an idea.<br>
+Build it.
+</h2>
+
+</div>
+
+
+<div class="about-text">
+
+<p>
+The Venture Lab is a student-led community for
+young people who want to learn, build and create
+alongside others.
+</p>
+
+<p>
+Share ideas, meet other builders, work on projects,
+learn new skills and turn ideas into something real.
+</p>
+
+<p>
+Our work happens remotely, so members can
+participate from wherever they are.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="age-banner">
+
+<div class="age-number">
+13–19
+</div>
+
+<div class="age-text">
+
+<strong>
+The Venture Lab is exclusively for people aged 13 to 19.
+</strong>
+
+<br><br>
+
+Applications are reviewed before members are
+invited into the community.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+02 — The Process
+</div>
+
+<h2>
+How it works.
+</h2>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">01</div>
+
+<h3>Apply</h3>
+
+<p>
+Tell us about yourself, your interests and
+what you want to build.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">02</div>
+
+<h3>Review</h3>
+
+<p>
+Our team reviews your application and
+gets back to you.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">03</div>
+
+<h3>Join</h3>
+
+<p>
+Accepted members receive an invitation
+to the community.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">04</div>
+
+<h3>Build</h3>
+
+<p>
+Meet people, join sessions, collaborate
+and start building.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BUILD -->
+
+<section class="section" id="build">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+03 — Inside The Lab
+</div>
+
+<h2>
+Bring ideas<br>
+to life.
+</h2>
+
+</div>
+
+
+<div class="build-grid">
+
+
+<div class="build-card">
+
+<div class="icon">✦</div>
+
+<h3>Find ideas</h3>
+
+<p>
+Explore problems and discover things
+worth building.
+</p>
+
+</div>
+
+
+<div class="build-card">
+
+<div class="icon">↗</div>
+
+<h3>Find teammates</h3>
+
+<p>
+Meet other young builders with different
+skills and interests.
+</p>
+
+</div>
+
+
+<div class="build-card">
+
+<div class="icon">◇</div>
+
+<h3>Build projects</h3>
+
+<p>
+Turn concepts into prototypes, products
+and experiments.
+</p>
+
+</div>
+
+
+<div class="build-card">
+
+<div class="icon">◎</div>
+
+<h3>Get feedback</h3>
+
+<p>
+Share your work and learn from people
+building alongside you.
+</p>
+
+</div>
+
+
+<div class="build-card">
+
+<div class="icon">+</div>
+
+<h3>Learn</h3>
+
+<p>
+Explore entrepreneurship, technology,
+design, business and more.
+</p>
+
+</div>
+
+
+<div class="build-card">
+
+<div class="icon">→</div>
+
+<h3>Launch</h3>
+
+<p>
+Take your project beyond the idea stage
+and put it into the real world.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOUNDERS -->
+
+<section class="section" id="founders">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+04 — The Team
+</div>
+
+<h2>
+Meet the<br>
+Founders.
+</h2>
+
+</div>
+
+
+<div class="founders">
+
+
+<!-- MOURASH -->
+
+<div class="founder">
+
+<img
+src="Mourash.jpg"
+alt="Mourash"
+class="founder-photo">
+
+<h3>Mourash</h3>
+
+<div class="founder-role">
+Founder & CEO
+</div>
+
+<p class="founder-bio">
+Leading the vision of The Venture Lab and
+helping turn ideas into a real student community.
+</p>
+
+<a
+href="https://www.linkedin.com/in/mourash-pran-dutta-7a622637b/"
+target="_blank"
+class="founder-link">
+
+LinkedIn →
+</a>
+
+</div>
+
+
+<!-- KOUSTAV -->
+
+<div class="founder">
+
+<div class="founder-photo placeholder">
+Photo coming soon
+</div>
+
+<h3>Koustav</h3>
+
+<div class="founder-role">
+Co-Founder & Community Lead
+</div>
+
+<p class="founder-bio">
+Building the community, welcoming members
+and keeping everyone connected.
+</p>
+
+<a
+href="https://www.linkedin.com/in/kaustov-gogoi-12085a400/"
+target="_blank"
+class="founder-link">
+
+LinkedIn →
+
+</a>
+
+</div>
+
+
+<!-- ANKUR -->
+
+<div class="founder">
+
+<img
+src="Ankur.jpg"
+alt="Ankur"
+class="founder-photo">
+
+<h3>Ankur</h3>
+
+<div class="founder-role">
+Co-Founder & Operations Lead
+</div>
+
+<p class="founder-bio">
+Keeping the team organized, coordinating
+projects and helping turn plans into action.
+</p>
+
+<a
+href="https://www.linkedin.com/in/ankur-bharali-55ba8a42b/"
+target="_blank"
+class="founder-link">
+
+LinkedIn →
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section class="section" id="apply">
+
+<div class="container">
+
+<div class="application">
+
+<div class="eyebrow">
+05 — Apply
+</div>
+
+<h2>
+Ready to build?
+</h2>
+
+<p class="application-intro">
+
+Applications are open only to people aged 13–19.
+Tell us a little about yourself and what you're
+interested in.
+
+</p>
+
+
+<form
+action="https://formspree.io/f/xvkpyzag"
+method="POST">
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="name">
+Name *
+</label>
+
+<input
+type="text"
+id="name"
+name="name"
+required
+placeholder="Your name">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email *
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+required
+placeholder="you@example.com">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="age">
+Age *
+</label>
+
+<input
+type="number"
+id="age"
+name="age"
+min="13"
+max="19"
+required
+placeholder="13–19">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="country">
+Country
+</label>
+
+<input
+type="text"
+id="country"
+name="country"
+placeholder="Where are you from?">
+
+</div>
+
+
+<div class="form-group full">
+
+<label for="interests">
+What are you interested in? *
+</label>
+
+<input
+type="text"
+id="interests"
+name="interests"
+required
+placeholder="Startups, coding, design, business...">
+
+</div>
+
+
+<div class="form-group full">
+
+<label for="project">
+What are you building or hoping to build?
+</label>
+
+<textarea
+id="project"
+name="project"
+placeholder="Tell us about your idea or project."></textarea>
+
+</div>
+
+
+<div class="form-group full">
+
+<label for="why">
+Why do you want to join The Venture Lab? *
+</label>
+
+<textarea
+id="why"
+name="why"
+required
+placeholder="A few sentences is enough."></textarea>
+
+</div>
+
+
+<div class="form-group full">
+
+<label class="checkbox-label">
+
+<input
+type="checkbox"
+name="age_confirmation"
+value="confirmed"
+required>
+
+I confirm that I am between 13 and 19 years old.
+
+</label>
+
+</div>
+
+
+</div>
+
+
+<button
+type="submit"
+class="btn btn-primary"
+style="margin-top:25px;cursor:pointer;">
+
+Submit Application →
+
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-inner">
+
+
+<div>
+
+<div class="logo">
+
+<img
+src="Logo.png"
+alt="The Venture Lab Logo"
+class="logo-image">
+
+<span>
+THE VENTURE LAB
+</span>
+
+</div>
+
+<p class="footer-text">
+
+A student-led community for young builders.
+Build. Connect. Create.
+
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a
+href="https://www.linkedin.com/company/theventurelab2026/"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+<p style="color:#333;font-size:11px;margin-top:45px;">
+
+© 2026 The Venture Lab
+
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* CUSTOM CURSOR */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", function(e) {
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+
+document.querySelectorAll(
+"a, button, input, textarea"
+).forEach(function(element) {
+
+element.addEventListener("mouseenter", function() {
+cursor.classList.add("big");
+});
+
+element.addEventListener("mouseleave", function() {
+cursor.classList.remove("big");
+});
+
+});
+
+
+/* AGE CHECK */
+
+const form = document.querySelector("form");
+const ageInput = document.querySelector("#age");
+
+form.addEventListener("submit", function(e) {
+
+const age = Number(ageInput.value);
+
+if (age < 13 || age > 19) {
+
+e.preventDefault();
+
+alert(
+"The Venture Lab is currently open only to people aged 13–19."
+);
+
+ageInput.focus();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
